@@ -1,4 +1,4 @@
-<h1>dir www</h1>
+<h1>dir /www/public</h1>
 
 <?php
 
