@@ -1,0 +1,1 @@
+# Estrutura base para novos projetos com Docker
