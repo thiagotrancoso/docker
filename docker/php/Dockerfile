@@ -35,7 +35,7 @@ RUN docker-php-ext-enable imagick
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
 
-WORKDIR /var/www/html
+WORKDIR /var/www
 
 EXPOSE 80
 EXPOSE 443
