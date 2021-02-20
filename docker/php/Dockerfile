@@ -1,41 +1,39 @@
 FROM php:7.4-fpm
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  autoconf \
-  build-essential \
-  apt-utils \
-  zlib1g-dev \
-  libzip-dev \
-  unzip \
-  zip \
-  libmagick++-dev \
-  libmagickwand-dev \
-  libpq-dev \
-  libfreetype6-dev \
-  libjpeg62-turbo-dev \
-  libpng-dev
+# Argumentos definidos em docker-compose.yml
+ARG uid
+ARG user
 
-# RUN docker-php-ext-configure gd \
-#   --with-png-dir=/usr/include/ \
-#   --with-jpeg-dir=/usr/include/ \
-#   --with-freetype-dir=/usr/include/
+# Instalando dependências do sistema
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
 
-# RUN docker-php-ext-configure zip --with-libzip
+# Limpar cache do "apt"
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install gd intl pdo_mysql pdo_pgsql mysqli zip \
-  && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-
-RUN pecl install imagick-3.4.3
-
-RUN pecl install xdebug && docker-php-ext-enable xdebug
-
-RUN docker-php-ext-enable imagick
+# Instalando extensões
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Instala o composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
 
+# Cria um usuário do sistema para executar os comandos Composer e Artisan
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
+
+# Define o diretório de trabalho
 WORKDIR /var/www
 
-EXPOSE 80
-EXPOSE 443
+# Usuário que irá executar os comandos do Composer e Artisan
+USER $user
+
+# EXPOSE 80
+# EXPOSE 443
