@@ -33,7 +33,8 @@ services:
         user: thiago    # Altere o nome "thiago" para o nome de usuário da máquina host
 ```
 
-# Se alterar o nome do container do PHP altere também no arquivo `default.conf`
+# Outras configurações
+### Se alterar o nome do container do PHP altere também no arquivo `default.conf`
 
 ```json
 // O "php" na linha de baixo é o nome do container
