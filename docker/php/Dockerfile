@@ -34,6 +34,3 @@ WORKDIR /var/www
 
 # Usuário que irá executar os comandos do Composer e Artisan
 USER $user
-
-# EXPOSE 80
-# EXPOSE 443
