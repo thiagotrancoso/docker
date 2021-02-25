@@ -8,7 +8,6 @@ services:
         user: thiago
       context: ./docker/php
       dockerfile: Dockerfile
-
     image: php:7.4
     container_name: "php"
     volumes:
