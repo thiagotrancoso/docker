@@ -2,6 +2,12 @@
 * [Iniciando novo projeto laravel com docker](https://github.com/thiagotrancoso/docker/wiki/Iniciando-novo-projeto-laravel-com-docker)
 * [Configurando url personalizada em ambiente local](https://github.com/thiagotrancoso/docker/wiki/Configurando-url-personalizada)
 
+## Containers
+* PHP 7.4.16-fpm
+* Nginx 1.19.8
+* MariaDB 10.5.9
+* PhpMyadmin 5.1
+
 ## Outras configurações
 ### Se alterar o nome do container do PHP altere também no arquivo `default.conf`
 
