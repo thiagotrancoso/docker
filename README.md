@@ -3,6 +3,7 @@
 * [Configurando url personalizada em ambiente local](https://github.com/thiagotrancoso/docker/wiki/Configurando-url-personalizada)
 
 ## Containers
+> Caso queira uma versão diferente altere o arquivo `docker-compose.yml`
 * PHP 7.4.16-fpm
 * Nginx 1.19.8
 * MariaDB 10.5.9
