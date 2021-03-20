@@ -5,7 +5,7 @@ services:
     build:
       args:
         uid: 1000
-        user: thiago
+        user: usuário_da_máquina_host
       context: ./docker/php
       dockerfile: Dockerfile
     image: php:7.4-fpm
