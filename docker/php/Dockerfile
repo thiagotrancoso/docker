@@ -4,6 +4,7 @@ FROM php:7.4-fpm
 ARG uid
 ARG user
 
+# Definido usuário root para executar as instalações e configurações
 USER root
 
 # Instalando dependências do sistema
