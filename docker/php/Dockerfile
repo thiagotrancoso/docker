@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:7.4.16-fpm
 
 # Argumentos definidos em docker-compose.yml
 ARG uid
