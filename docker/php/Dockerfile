@@ -4,6 +4,8 @@ FROM php:7.4-fpm
 ARG uid
 ARG user
 
+USER root
+
 # Instalando dependências do sistema
 RUN apt-get update && apt-get install -y \
     git \
