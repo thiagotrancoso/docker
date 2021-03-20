@@ -1,6 +1,6 @@
 FROM php:7.4.16-fpm
 
-# Argumentos definidos em docker-compose.yml
+# Argumentos definidos no arquivo "docker-compose.yml"
 ARG uid
 ARG user
 
@@ -24,7 +24,7 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
 
-# Cria um usuário do sistema para executar os comandos Composer e Artisan
+# Cria um usuário no sistema para executar os comandos Composer e Artisan
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
