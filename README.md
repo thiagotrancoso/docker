@@ -6,9 +6,9 @@
 > Caso queira uma versão diferente do `PHP`, altere o arquivo `docker/php/Dockerfile`.  
 > Caso queira uma versão diferente de outro serviço, altere o arquivo `docker-compose.yml`.
 
-* PHP 7.4.16-fpm
-* Nginx 1.19.8
-* MariaDB 10.5.9
+* PHP 7.4-fpm
+* Nginx 1.19
+* MariaDB 10.5
 * PhpMyAdmin 5.1
 
 ## Outras configurações
