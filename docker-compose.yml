@@ -19,7 +19,7 @@ services:
       - mynetwork
 
   nginx:
-    image: nginx:1.19.8
+    image: nginx:1.19
     container_name: "nginx"
     volumes:
       - ./docker/nginx/server.pem:/etc/nginx/ssl/server.pem
@@ -34,7 +34,7 @@ services:
       - mynetwork
 
   mariadb:
-    image: mariadb:10.5.9
+    image: mariadb:10.5
     container_name: "mariadb"
     environment:
       MYSQL_ROOT_PASSWORD: root
