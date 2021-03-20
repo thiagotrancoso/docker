@@ -1,6 +1,6 @@
 ## Tutoriais
 * [Iniciando novo projeto laravel com docker](https://github.com/thiagotrancoso/docker/wiki/Iniciando-novo-projeto-laravel-com-docker)
-* [Configurando url personalizada em ambiente local](https://github.com/thiagotrancoso/docker/wiki/Configurando-url-personalizada)
+* [Configurando url personalizada em ambiente local](https://github.com/thiagotrancoso/new-project-laravel-docker/wiki/Configurando-url-personalizada-em-ambiente-local)
 
 ## Containers
 > Caso queira uma versão diferente do `PHP`, altere o arquivo `docker/php/Dockerfile`.  
