@@ -5,9 +5,9 @@ services:
     container_name: "php"
     image: php:7.4-fpm
     build:
-      args:
-        uid: 1000
-        user: usuário_da_máquina_host
+      # args:
+      #   uid: 1000
+      #   user: usuário_da_máquina_host
       context: ./docker/php
       dockerfile: Dockerfile
     volumes:
