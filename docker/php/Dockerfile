@@ -7,7 +7,7 @@ ARG user
 # Definido usuário root para executar as instalações e configurações
 USER root
 
-# Instalando dependências do sistema
+# Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -20,20 +20,24 @@ RUN apt-get update && apt-get install -y \
 # Limpar cache do "apt"
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Instale extensões PHP
+# Instalar extensões PHP
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
-# Instala o composer
+# Instalar o composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/bin/composer
 
-# Cria um usuário no sistema para executar os comandos Composer e Artisan
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
+# Verifica se o usuário definido no arquivo "docker-compose.yml" existe
+# Este usuário irá executar os comandos do Composer e Artisan
+# Caso não exista, então adiciona
+RUN if [ ! $(getent passwd $user) ]; \
+    then \
+        useradd -G www-data,root -u $uid -d /home/$user $user; \
+        mkdir -p /home/$user/.composer && chown -R $user:$user /home/$user; \
+    fi;
 
 # Define o diretório de trabalho
-WORKDIR /var/www
+WORKDIR /var/www;
 
 # Usuário que irá executar os comandos do Composer e Artisan
 USER $user
