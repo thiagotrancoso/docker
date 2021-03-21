@@ -34,7 +34,7 @@ RUN if [ ! $(getent passwd $user) ]; \
     then \
         useradd -G www-data,root -u $uid -d /home/$user $user; \
         mkdir -p /home/$user/.composer && chown -R $user:$user /home/$user; \
-    fi;
+    fi
 
 # Define o diretório de trabalho
 WORKDIR /var/www
