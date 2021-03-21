@@ -1,8 +1,8 @@
 FROM php:7.4-fpm
 
 # Argumentos definidos no arquivo "docker-compose.yml"
-ARG uid
-ARG user
+ARG uid = 1000
+ARG user = "server"
 
 # Definido usuário root para executar as instalações e configurações
 USER root
