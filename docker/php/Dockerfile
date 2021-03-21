@@ -37,7 +37,7 @@ RUN if [ ! $(getent passwd $user) ]; \
     fi;
 
 # Define o diretório de trabalho
-WORKDIR /var/www;
+WORKDIR /var/www
 
 # Usuário que irá executar os comandos do Composer e Artisan
 USER $user
