@@ -2,7 +2,7 @@ version: "3"
 
 services:
   php:
-    container_name: "php-srv"
+    container_name: "php"
     image: php:7.4-fpm
     build:
       context: ./docker/php
@@ -16,7 +16,7 @@ services:
       - mynetwork
 
   nginx:
-    container_name: "nginx-srv"
+    container_name: "nginx"
     image: nginx:1.19
     volumes:
       - ./docker/nginx/server.pem:/etc/nginx/ssl/server.pem
@@ -31,7 +31,7 @@ services:
       - mynetwork
 
   postgres:
-    container_name: postgres-srv
+    container_name: "postgres"
     image: postgres:12
     environment:
       POSTGRES_PASSWORD: postgres
@@ -42,7 +42,7 @@ services:
       - mynetwork
 
   mariadb:
-    container_name: "mariadb-srv"
+    container_name: "mariadb"
     image: mariadb:10.5
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -55,7 +55,7 @@ services:
       - mynetwork
 
   mysql:
-    container_name: mysql-srv
+    container_name: "mysql"
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -68,7 +68,7 @@ services:
       - mynetwork
 
   phpmyadmin:
-    container_name: "phpmyadmin-srv"
+    container_name: "phpmyadmin"
     image: phpmyadmin:5.1
     environment:
       PMA_HOST: mariadb
