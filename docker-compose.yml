@@ -30,19 +30,6 @@ services:
     networks:
       - mynetwork
 
-  pgsql:
-    container_name: "mariadb-srv"
-    image: mariadb:10.5
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./docker/mariadb:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    # restart: unless-stopped
-    networks:
-      - mynetwork
-
   postgres:
     container_name: postgres-srv
     image: postgres:12
