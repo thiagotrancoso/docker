@@ -17,11 +17,14 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
+# Instalar extensões PHP
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
 # Limpar cache do "apt"
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Instalar extensões PHP
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+# Instalar NodeJs
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
 
 # Instalar o composer
 RUN curl -sS https://getcomposer.org/installer | php
