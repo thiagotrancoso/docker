@@ -10,7 +10,7 @@ services:
     volumes:
       - ./:/var/www
       - ./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
-    links:
+    links: # Remova os links que não for usar
       - # postgres | mariadb | mysql
     ports:
       - "9000:9000"
@@ -29,6 +29,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    depends_on:
+      - php
     # restart: always
     networks:
       - mynetwork
@@ -66,6 +68,9 @@ services:
       MYSQL_USER: root
     volumes:
       - ./docker/mysql:/docker-entrypoint-initdb.d
+    #  - ./docker/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
     # restart: unless-stopped
     networks:
       - mynetwork
@@ -74,10 +79,12 @@ services:
     container_name: "phpmyadmin"
     image: phpmyadmin:5.1
     environment:
-      PMA_HOST: mariadb
+      PMA_HOST: # mariadb | mysql
     # restart: unless-stopped
-    links:
-      - "mariadb"
+    links: # Remova os links que não for usar
+      - # mariadb | mysql
+    depends_on: # Remova as dependencias que não for usar
+      - # mariadb | mysql
     ports:
       - "3380:80"
     networks:
