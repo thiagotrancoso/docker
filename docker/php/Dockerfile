@@ -17,7 +17,9 @@ RUN apt-get update && \
     libpq-dev \
     libxml2-dev \
     zip \
-    unzip 
+    unzip \
+    nano \
+    vim
 
 # Instalar extensões PHP
 RUN docker-php-ext-configure pgsql && \
